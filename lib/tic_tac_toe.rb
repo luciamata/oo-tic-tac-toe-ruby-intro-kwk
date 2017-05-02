@@ -1,5 +1,5 @@
 class TicTacToe
-  def initialize(board = nil)
+  def initialize()
     @board = Array.new(9, " ")
   end
 
@@ -42,12 +42,10 @@ class TicTacToe
     display_board
     puts "Please enter 1-9:"
     input = gets.strip
-    if valid_move?(input)
-     move(input, current_player)
-     display_board
-   else
-     turn
-  end
+    if !valid_move?(input)
+      turn
+    end
+    move(input, current_player)
 end
 
   def turn_count
